@@ -24,4 +24,15 @@ export class DataApiService {
     const url_api = "http://backend.test/api/products";
     return this.http.get(url_api, { headers: this.headers });
   }
+
+  seacrhProduct(value: string) : Observable<any> {
+    const url_api = "http://backend.test/api/products/search";
+    return this.http
+      .post<ProductInterface>(
+        url_api, 
+        { value }, 
+        { headers: this.headers }
+       )
+      .pipe(map(data => data));
+  }
 }
