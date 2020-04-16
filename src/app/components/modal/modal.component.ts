@@ -32,7 +32,6 @@ export class ModalComponent implements OnInit {
   }
 
   onSaveProduct(productForm: NgForm): void {
-    console.log(productForm.value.enable); 
     if (productForm.value.productId == null) {
       // NEW
       return this.dataApiService.saveProduct(
@@ -40,6 +39,7 @@ export class ModalComponent implements OnInit {
         productForm.value.name,
         productForm.value.description,
         productForm.value.quantity,
+        productForm.value.image,
         productForm.value.enable
         )
       .subscribe(product => location.reload());

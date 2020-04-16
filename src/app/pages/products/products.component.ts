@@ -45,11 +45,10 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-   openModalProduct(prod?){
+  openModalProduct(prod?){
     if(prod){
       this.product_send = prod;
     }
     $('#modal-new-product').modal({keyboard: false}, 'show')
   }
-
 }

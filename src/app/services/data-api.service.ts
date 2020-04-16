@@ -13,6 +13,15 @@ export class DataApiService {
   constructor(private http: HttpClient, private authService: AuthService) { }
   products: Observable<any>;
   product: Observable<any>;
+  public selectedProduct: ProductInterface = {
+    id: null,
+    reference: '',
+    name: '',
+    descripcion: '',
+    quantity: '',
+    image: '',
+    enable: ''
+  };
 
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -36,9 +45,8 @@ export class DataApiService {
       .pipe(map(data => data));
   }
 
-  saveProduct(reference: string, name: string, description: string, quantity: number, enable:boolean) : Observable<any> {
+  saveProduct(reference: string, name: string, description: string, quantity: number, image: string,  enable:boolean) : Observable<any> {
     const url_api = "http://backend.test/api/products";
-    let image = 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.stack.imgur.com%2Fxbil8.png&imgrefurl=https%3A%2F%2Fes.stackoverflow.com%2Fquestions%2F220272%2Fcomo-subir-imagen-en-laravel&tbnid=SnZzyDu1xTrGMM&vet=12ahUKEwid0a3H9O3oAhV0WDABHYfFBQEQMygBegUIARDXAQ..i&docid=EKcnf2wW9f2vMM&w=779&h=554&q=imagen%20publica%20laravel&ved=2ahUKEwid0a3H9O3oAhV0WDABHYfFBQEQMygBegUIARDXAQ'; 
     return this.http
       .post<ProductInterface>(
         url_api, 
