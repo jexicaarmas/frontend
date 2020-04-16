@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataApiService } from 'src/app/services/data-api.service';
+import { ProductInterface } from 'src/app/models/product-interface';
 
 @Component({
   selector: 'app-products',
@@ -8,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataApiService: DataApiService) { }
+  private products: ProductInterface;
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getListProducts();
   }
+
+  getListProducts(): void {
+    this.dataApiService
+      .getAllProducts()
+      .subscribe((products: ProductInterface) => (this.products = products.response));
+  }
+
 
 }
