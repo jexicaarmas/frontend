@@ -16,6 +16,7 @@ import { PagesComponent } from './pages/pages.component';
 
 //Services
 import { AuthService } from 'src/app/services/auth.service';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AuthService } from 'src/app/services/auth.service';
     ProductsComponent,
     HeaderComponent,
     SidebarComponent,
-    PagesComponent
+    PagesComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

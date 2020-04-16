@@ -24,7 +24,7 @@ export class ProductsComponent implements OnInit {
       description: '',
       quantity: '',
       image: '',
-      enable: '',
+      enable: ''
     }; 
 
     this.getListProducts();
