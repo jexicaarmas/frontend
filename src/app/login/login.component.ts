@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { isError } from 'util';
 import { NgForm } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +12,9 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor( private authService: AuthService, private router: Router ) { }
+  constructor( private authService: AuthService, private router: Router,  private location: Location ) { }
   public user: UserInterface;
+  public isError = false;
 
   ngOnInit() {
     this.user = {
@@ -30,10 +30,16 @@ export class LoginComponent implements OnInit {
         this.authService.setUser(values);
         this.authService.setToken(values.access_token); 
         this.router.navigate(['/products']); 
-        location.reload();
         this.isError = false;
       }, 
         error => this.onIsError()
        );
+  }
+
+  onIsError(): void {
+    this.isError = true;
+    setTimeout(() => {
+      this.isError = false;
+    }, 4000);
   }
 }
