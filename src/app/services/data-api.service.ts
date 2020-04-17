@@ -54,5 +54,9 @@ export class DataApiService {
         { headers: this.headers })
       .pipe(map(data => data));
   }
+
+  onPreUpdateProduct(book: ProductInterface): void {
+    this.dataApiService.selectedProduct = Object.assign({}, product);
+  }
 }
 

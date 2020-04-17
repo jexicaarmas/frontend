@@ -43,7 +43,7 @@
                                                 <td *ngIf="product.enable ==1"> Activo </td>
                                                 <td *ngIf="product.enable ==0"> Inactivo </td>
                                                 <td>
-                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#modalProduct" (click)="viewProduct(product)">Ver</button>
+                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#modalProduct" (click)="onPreUpdateProduct(product)">Actualizar</button>
                                                 </td>
                                             </tr>
                                         </tbody>

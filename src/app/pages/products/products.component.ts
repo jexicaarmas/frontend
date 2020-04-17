@@ -51,4 +51,8 @@ export class ProductsComponent implements OnInit {
     }
     $('#modal-new-product').modal({keyboard: false}, 'show')
   }
+
+  onPreUpdateProduct(product: ProductInterface): void {
+    this.dataApiService.selectedProduct = Object.assign({}, product);
+  }
 }

@@ -49,4 +49,8 @@ export class ModalComponent implements OnInit {
     }
   }
 
+  onPreUpdateProduct(product: ProductInterface): void {
+    this.dataApiService.selectedProduct = Object.assign({}, product);
+  }
+
 }
